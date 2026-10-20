@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark-Aldine C. Espinosa - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="#" class="logo">My Portfolio</a>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+            <li><a href="#about" class="nav-link" data-page="about">About Me</a></li>
+            <li><a href="#skills" class="nav-link" data-page="skills">Skills</a></li>
+            <li><a href="#projects" class="nav-link" data-page="projects">Projects</a></li>
+            <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="page active">
+    <div class="home-content">
+        <h1>Hi, I'm Mark-Aldine C. Espinosa</h1>
+        <p>Welcome to my portfolio! I'm a BSIT student passionate about technology and coding. Thank you for visiting my page! 😊</p><br>
+        <button id="welcomeBtn">👋 Say Hello!</button>
+        <p id="currentTime"></p>
+    </div>
+</section>
+
+<section id="about" class="page">
+    <h1>About Me</h1>
+    <p><strong>Name:</strong> Mark-Aldine C. Espinosa</p>
+    <p><strong>Education:</strong> Bachelor of Science in Information Technology</p>
+    <p><strong>School:</strong> Bestlink college of the philippine]</p>
+    <h3>🎯 My Interests</h3>
+    <p>I enjoy learning web development, programming, and discovering new technologies. In my free time, I like exploring design, watching tech tutorials, and working on my projects.</p>
+</section>
+
+<section id="skills" class="page">
+    <h1>My Skills</h1>
+    <h3>💻 Technical Skills</h3>
+    <ul>
+        <li>HTML5 & CSS3</li>
+        <li>JavaScript Basics</li>
+        <li>C Programming</li>
+        <li>Computer Basics & Troubleshooting</li>
+    </ul>
+    <h3>🤝 Personal Skills</h3>
+    <ul>
+        <li>Teamwork & Communication</li>
+        <li>Problem Solving</li>
+        <li>Time Management</li>
+        <li>Fast Learner & Adaptable</li>
+    </ul>
+</section>
+
+<section id="projects" class="page">
+    <h1>My Projects</h1>
+    <div class="project-card">
+        <h3>🌐 Willows Website</h3>
+        <p>My first published website — built using HTML and CSS. It includes my introduction, services, favorites, and contact information.</p>
+        <br>
+        <a href="https://markaldineespinosa10-eng.github.io/welcomen-to-mywebsite/" target="_blank" class="project-link">🔗 View My Website</a>
+    </div>
+    <div class="project-card">
+        <h3>❤️ My Favorites Website</h3>
+        <p>A simple webpage that showcases favorite things — food, movies, music, and more. Created to practice basic HTML structure and styling.</p>
+        <br>
+        <a href="https://micaelladilao49-wq.github.io/myfavorite/" target="_blank" class="project-link">🔗 View My Favorites Page</a>
+    </div>
+    <div class="project-card">
+        <h3>📝 C Programming Exercises</h3>
+        <p>My first programming projects — simple calculators, number patterns, and basic programs.</p>
+    </div>
+    <div class="project-card">
+        <h3>📂 This Portfolio Website</h3>
+        <p>Putting everything together — HTML, CSS, and JavaScript interactions.</p>
+    </div>
+</section>
+
+<section id="contact" class="page">
+    <h1>Contact Me</h1>
+    <p><strong>📧 Email:</strong> markaldineespinosa10@gmail.com</p>
+    <p><strong>📱 Phone:</strong> 09355448611</p>
+    <p><strong>📍 Location:</strong> Quezon City, Philippines</p>
+    <p style="margin-top: 2rem;">Feel free to reach out! 😊</p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Mark-Aldine C. Espinosa. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page');
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = e.target.getAttribute('data-page');
+            navLinks.forEach(l => l.classList.remove('active'));
+            pages.forEach(p => p.classList.remove('active'));
+            e.target.classList.add('active');
+            document.getElementById(target).classList.add('active');
+        });
+    });
+    document.getElementById('welcomeBtn').addEventListener('click', () => {
+        alert('🎉 Welcome to my portfolio! Thanks for visiting!');
+    });
+    function showTime() {
+        const now = new Date();
+        document.getElementById('currentTime').innerHTML = `<strong>🕐 Today:</strong> ${now.toLocaleDateString('en-US', {weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'})}`;
+    }
+    showTime();
+    setInterval(showTime, 1000);
+</script>
+
+</body>
+</html>
